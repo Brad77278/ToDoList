@@ -6,15 +6,21 @@ const ejs = require("ejs");
 
 const app = express();
 
+mongoose.connect("mongodb://localhost:27017/ToDoListDB", { useNewUrlParser: true, useUnifiedTopology: true });
+
+const ToDoListScehma = new mongoose.Schema({
+
+})
+
 var items = ["Buy food", "cook food", "eat food"];
 
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static(__dirname + '/public'));
 
 app.set('view engine', 'ejs');
 
-app.get("/", function(req, res){
+app.get("/", function (req, res) {
     var today = new Date();
 
     var options = {
@@ -25,15 +31,15 @@ app.get("/", function(req, res){
 
     var day = today.toLocaleDateString("en-US", options);
 
-    res.render("list", {kindOfDay: day, newListItems: items});
+    res.render("list", { kindOfDay: day, newListItems: items });
 });
 
-app.post("/", function(req, res){
+app.post("/", function (req, res) {
     var item = req.body.newItem;
     items.push(item);
     res.redirect("/");
 })
 
-app.listen(3000, function(){
+app.listen(3000, function () {
     console.log("Server is running on port 3000");
 });
