@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,25 +8,34 @@
 
     <link rel="stylesheet" href="/css/styles.css">
 </head>
+
 <body>
 
     <div class="box" id="heading">
+        <!-- div to display current date-->
         <h1> <%= kindOfDay %> </h1>
     </div>
-    
+
     <div class="box">
-        
-        <%for (var i=0; i<newListItems.length; i++){ %>
+
+        <% newListItems.forEach(function(item){ %>
+        <!--div that displays all current list items-->
+        <form action="/delete" method="POST">
             <div class="item">
-                <input type="checkbox">
-                <p> <%=newListItems[i]%> </p>
-            </div>  
-        <% } %>
+                <input type="checkbox" onChange="this.form.submit()" name="checkbox" value="<%= item._id %>">
+                <p> <%=item.name%> </p>
+            </div>
+        </form>
+        <% }) %>
 
         <form action="/" method="POST">
+            <!--div to display input box and button-->
             <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
             <button type="submit" name="button">+</button>
         </form>
+
     </div>
+
 </body>
+
 </html>
