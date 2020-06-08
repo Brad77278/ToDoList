@@ -8,7 +8,6 @@ New lists can be created by appending the list title at the end of the url.
 
 For example "/Work" or "/School"
 
-Each new list is saved to MongoDB and returned to at any time.
-
+Each new list is saved to MongoDB and can be returned to at any time.
 
 Enjoy!
