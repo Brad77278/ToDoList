@@ -1,13 +1,13 @@
-ToDoList Web App
+ToDoList Web Application
 
-A simple to-do-list web page where users can add and delete tasks from their list.
-
-Written in Javascript, NodeJS, EJS, and MongoDB for the database.
+A to-do-list web page where users can add and delete tasks from custom lists.
 
 New lists can be created by appending the list title at the end of the url.
 
 For example "/Work" or "/School"
 
-Each new list is saved to MongoDB and can be returned to at any time.
+Written in Javascript, NodeJS, EJS, and MongoDB for the database.
+
+The application is being deployed using Heroku, and MongoDB Atlas for the database
 
 Enjoy!
