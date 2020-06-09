@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 
-mongoose.connect("mongodb://localhost:27017/ToDoListDB", { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect("mongodb+srv://Admin-Bradley:qs4OdDmTurZKh2LO@cluster0-gkzdj.mongodb.net/ToDoListDB", { useNewUrlParser: true, useUnifiedTopology: true });
 
 //mongodb schema 
 const itemsScehma = new mongoose.Schema({
@@ -137,7 +137,7 @@ app.post("/delete", function (req, res) {
 
 });
 
-app.listen(3000, function () {
+app.listen(process.env.PORT || 3000, function () {
 
     console.log("Server is running on port 3000");
 });
